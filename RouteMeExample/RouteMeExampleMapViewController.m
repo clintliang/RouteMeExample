@@ -223,10 +223,10 @@ numberOfRowsInComponent:(NSInteger)component
         titles = [[NSArray alloc] initWithObjects:
                   @"Open Street Maps", 
                   @"Yahoo Map",
-                  @"Virtual Earth Aerial", 
-                  @"Virtual Earth Hybrid", 
-                  @"Virtual Earth Road", 
-                  @"Cloud Made Map", 
+                  //@"Virtual Earth Aerial", 
+                  //@"Virtual Earth Hybrid", 
+                  //@"Virtual Earth Road", 
+                  //@"Cloud Made Map", 
                   nil];
     }
     
