@@ -2,7 +2,7 @@
 //  RouteMeExampleMapViewController.m
 //  RouteMeExample
 //
-//  Created by Zhe Liang on 11-11-05.
+//  Created by Clint Liang on 11-11-05.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -38,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [RMMapView class]; // this important, maps won't display without it
     [mapView setDelegate:self];
     
@@ -46,24 +47,30 @@
     [self setMapSourceWithNumber:mapSourceNumber];
     [self.mapPicker selectRow:mapSourceNumber inComponent:0 animated:NO];
     
-    //set center
+    /*
+     * set center
+     */
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(53.91000, -122.77634);
     [self.mapView.contents moveToLatLong:center];
     [self.mapView.contents setZoom:11.0f];
     
-    //add marker
+    /*
+     * add marker
+     */
     UIImage *markerIcon = [UIImage imageNamed:@"pin.png"];
     CLLocationCoordinate2D markerLocation = CLLocationCoordinate2DMake(53.91081, -122.76192);
     RMMarker *marker = [[RMMarker alloc] initWithUIImage:markerIcon anchorPoint:CGPointMake(0.5, 1.0)];
     [self.mapView.contents.markerManager addMarker:marker AtLatLong:markerLocation];
     
-    //add path
+    /*
+     * add polyline (RMPath)
+     */
     
     //RMPath* routePath = [[RMPath alloc] initWithContents:mapView.contents];
     RMPath *routePath = [[RMPath alloc] initForMap:mapView];
     routePath.enableRotation = TRUE;
     
-    //style
+    //polyline style
     routePath.lineColor = [[UIColor redColor] colorWithAlphaComponent:0.6];
     routePath.fillColor = [UIColor clearColor];
     routePath.lineWidth = 3;
@@ -80,11 +87,13 @@
     
     [self.mapView.contents.overlay addSublayer:routePath];
     
-    //add polygon
+    /*
+     * add polygon (RMPath)
+     */
     RMPath *polygonPath = [[RMPath alloc] initForMap:mapView];
     polygonPath.enableRotation = TRUE;
     
-    //style
+    //polygon style
     polygonPath.lineColor = [[UIColor blueColor] colorWithAlphaComponent:0.6];
     polygonPath.fillColor = [[UIColor blueColor] colorWithAlphaComponent:0.2];
     polygonPath.lineWidth = 2;
@@ -131,7 +140,8 @@
     if (mapSourceNumber == number)
         return;
     
-    switch (number) {
+    switch (number) 
+    {
         case 0:
             mapView.contents.tileSource = [[RMOpenStreetMapSource alloc] init];
             break;
@@ -192,7 +202,7 @@
     {
         NSLog(@"show");
     }
-    //[self.mapView setUserInteractionEnabled:self.mapPicker.isHidden];
+    //[self.mapView setUserInteractionEnabled:self.mapPicker.isHidden]; //this code dosn't work on xcode 4.2
 }
 
 /*

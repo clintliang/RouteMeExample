@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  RouteMeExample
 //
-//  Created by Zhe Liang on 11-11-05.
+//  Created by Clint Liang on 11-11-05.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
