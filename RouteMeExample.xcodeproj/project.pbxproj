@@ -13,19 +13,65 @@
 		9F8BD25E1465F436009AD924 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F8BD25C1465F436009AD924 /* InfoPlist.strings */; };
 		9F8BD2601465F436009AD924 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BD25F1465F436009AD924 /* main.m */; };
 		9F8BD2641465F436009AD924 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BD2631465F436009AD924 /* AppDelegate.m */; };
+		9F8BD4D31465F763009AD924 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BD4D21465F763009AD924 /* CoreLocation.framework */; };
+		9F8BD4D51465F774009AD924 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BD4D41465F774009AD924 /* QuartzCore.framework */; };
+		9F8BD4D71465F785009AD924 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BD4D61465F785009AD924 /* libsqlite3.dylib */; };
+		9F8BD4D81465F799009AD924 /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BD4CA1465F607009AD924 /* libMapView.a */; };
+		9F8BD4DB1465F93A009AD924 /* RouteMeExampleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BD4DA1465F93A009AD924 /* RouteMeExampleMapViewController.m */; };
+		9F8BD4DD1465F98C009AD924 /* RouteMeExample_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8BD4DC1465F98C009AD924 /* RouteMeExample_iphone.storyboard */; };
+		9F8BD4E91465FE03009AD924 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8BD4E81465FE03009AD924 /* pin.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F8BD4C91465F607009AD924 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F8BD4B91465F606009AD924 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17F31EFA1331050A00122B16;
+			remoteInfo = MapView;
+		};
+		9F8BD4CB1465F607009AD924 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F8BD4B91465F606009AD924 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17157D87133BBC8300E28941;
+			remoteInfo = MapViewTests;
+		};
+		9F8BD4CD1465F607009AD924 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F8BD4B91465F606009AD924 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BF3078F0F8AC5C0007014EE;
+			remoteInfo = "Unit Tests";
+		};
+		9F8BD4D01465F72B009AD924 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F8BD4B91465F606009AD924 /* MapView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B8C974130E8A19B2007D16AD;
+			remoteInfo = MapView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9F8BD24F1465F436009AD924 /* RouteMeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteMeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8BD2531465F436009AD924 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9F8BD2551465F436009AD924 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9F8BD2571465F436009AD924 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9F8BD25B1465F436009AD924 /* RouteMeExample-Info.plist */ = {isa = PBXFileReference; path = "RouteMeExample-Info.plist"; sourceTree = "<group>"; };
+		9F8BD25B1465F436009AD924 /* RouteMeExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RouteMeExample-Info.plist"; sourceTree = "<group>"; };
 		9F8BD25D1465F436009AD924 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9F8BD25F1465F436009AD924 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9F8BD2611465F436009AD924 /* RouteMeExample-Prefix.pch */ = {isa = PBXFileReference; path = "RouteMeExample-Prefix.pch"; sourceTree = "<group>"; };
-		9F8BD2621465F436009AD924 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		9F8BD2611465F436009AD924 /* RouteMeExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RouteMeExample-Prefix.pch"; sourceTree = "<group>"; };
+		9F8BD2621465F436009AD924 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9F8BD2631465F436009AD924 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9F8BD4B91465F606009AD924 /* MapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapView.xcodeproj; path = ../../Libs/RouteMe/MapView/MapView.xcodeproj; sourceTree = "<group>"; };
+		9F8BD4D21465F763009AD924 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9F8BD4D41465F774009AD924 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9F8BD4D61465F785009AD924 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		9F8BD4D91465F93A009AD924 /* RouteMeExampleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMeExampleMapViewController.h; sourceTree = "<group>"; };
+		9F8BD4DA1465F93A009AD924 /* RouteMeExampleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMeExampleMapViewController.m; sourceTree = "<group>"; };
+		9F8BD4DC1465F98C009AD924 /* RouteMeExample_iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RouteMeExample_iphone.storyboard; sourceTree = "<group>"; };
+		9F8BD4E81465FE03009AD924 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8BD4D81465F799009AD924 /* libMapView.a in Frameworks */,
+				9F8BD4D71465F785009AD924 /* libsqlite3.dylib in Frameworks */,
+				9F8BD4D51465F774009AD924 /* QuartzCore.framework in Frameworks */,
+				9F8BD4D31465F763009AD924 /* CoreLocation.framework in Frameworks */,
 				9F8BD2541465F436009AD924 /* UIKit.framework in Frameworks */,
 				9F8BD2561465F436009AD924 /* Foundation.framework in Frameworks */,
 				9F8BD2581465F436009AD924 /* CoreGraphics.framework in Frameworks */,
@@ -45,9 +95,13 @@
 		9F8BD2441465F436009AD924 = {
 			isa = PBXGroup;
 			children = (
-				9F8BD2591465F436009AD924 /* RouteMeExample */,
+				9F8BD4D21465F763009AD924 /* CoreLocation.framework */,
 				9F8BD2521465F436009AD924 /* Frameworks */,
+				9F8BD4D61465F785009AD924 /* libsqlite3.dylib */,
+				9F8BD4B91465F606009AD924 /* MapView.xcodeproj */,
 				9F8BD2501465F436009AD924 /* Products */,
+				9F8BD4D41465F774009AD924 /* QuartzCore.framework */,
+				9F8BD2591465F436009AD924 /* RouteMeExample */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,9 +126,13 @@
 		9F8BD2591465F436009AD924 /* RouteMeExample */ = {
 			isa = PBXGroup;
 			children = (
+				9F8BD4E81465FE03009AD924 /* pin.png */,
 				9F8BD2621465F436009AD924 /* AppDelegate.h */,
 				9F8BD2631465F436009AD924 /* AppDelegate.m */,
 				9F8BD25A1465F436009AD924 /* Supporting Files */,
+				9F8BD4D91465F93A009AD924 /* RouteMeExampleMapViewController.h */,
+				9F8BD4DA1465F93A009AD924 /* RouteMeExampleMapViewController.m */,
+				9F8BD4DC1465F98C009AD924 /* RouteMeExample_iphone.storyboard */,
 			);
 			path = RouteMeExample;
 			sourceTree = "<group>";
@@ -88,6 +146,16 @@
 				9F8BD2611465F436009AD924 /* RouteMeExample-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F8BD4BA1465F606009AD924 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F8BD4CA1465F607009AD924 /* libMapView.a */,
+				9F8BD4CC1465F607009AD924 /* MapViewTests.octest */,
+				9F8BD4CE1465F607009AD924 /* RM Unit Tests.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +172,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9F8BD4D11465F72B009AD924 /* PBXTargetDependency */,
 			);
 			name = RouteMeExample;
 			productName = RouteMeExample;
@@ -128,6 +197,12 @@
 			mainGroup = 9F8BD2441465F436009AD924;
 			productRefGroup = 9F8BD2501465F436009AD924 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9F8BD4BA1465F606009AD924 /* Products */;
+					ProjectRef = 9F8BD4B91465F606009AD924 /* MapView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9F8BD24E1465F436009AD924 /* RouteMeExample */,
@@ -135,12 +210,38 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		9F8BD4CA1465F607009AD924 /* libMapView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMapView.a;
+			remoteRef = 9F8BD4C91465F607009AD924 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9F8BD4CC1465F607009AD924 /* MapViewTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MapViewTests.octest;
+			remoteRef = 9F8BD4CB1465F607009AD924 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9F8BD4CE1465F607009AD924 /* RM Unit Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "RM Unit Tests.app";
+			remoteRef = 9F8BD4CD1465F607009AD924 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		9F8BD24D1465F436009AD924 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9F8BD25E1465F436009AD924 /* InfoPlist.strings in Resources */,
+				9F8BD4DD1465F98C009AD924 /* RouteMeExample_iphone.storyboard in Resources */,
+				9F8BD4E91465FE03009AD924 /* pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,10 +254,19 @@
 			files = (
 				9F8BD2601465F436009AD924 /* main.m in Sources */,
 				9F8BD2641465F436009AD924 /* AppDelegate.m in Sources */,
+				9F8BD4DB1465F93A009AD924 /* RouteMeExampleMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F8BD4D11465F72B009AD924 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MapView;
+			targetProxy = 9F8BD4D01465F72B009AD924 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9F8BD25C1465F436009AD924 /* InfoPlist.strings */ = {
@@ -222,6 +332,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RouteMeExample/RouteMeExample-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "../../Libs/RouteMe/MapView/**";
 				INFOPLIST_FILE = "RouteMeExample/RouteMeExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -233,6 +344,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RouteMeExample/RouteMeExample-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "../../Libs/RouteMe/MapView/**";
 				INFOPLIST_FILE = "RouteMeExample/RouteMeExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -258,6 +370,7 @@
 				9F8BD2691465F436009AD924 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
