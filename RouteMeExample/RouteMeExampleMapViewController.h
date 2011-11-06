@@ -28,6 +28,7 @@
     NSArray *titles;
     int mapSourceNumber;
     CLLocationManager *locationManager;
+    RMMarker *userLocationMarker;
 }
 
 @property (strong, nonatomic) IBOutlet RMMapView *mapView;

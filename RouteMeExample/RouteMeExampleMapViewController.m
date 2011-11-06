@@ -255,6 +255,24 @@ fromLocation:(CLLocation *)oldLocation
     double lng = newLocation.coordinate.longitude;
     
     NSLog(@"(%f, %f)", lat, lng);
+    UIImage *markerIcon = [UIImage imageNamed:@"The-Sea-Turtle.png"];
+    CLLocationCoordinate2D markerLocation = CLLocationCoordinate2DMake(lat, lng);
+    
+    if(!userLocationMarker)
+    {
+        userLocationMarker = [[RMMarker alloc] initWithUIImage:markerIcon anchorPoint:CGPointMake(0.5, 1.0)];
+        [self.mapView.contents.markerManager addMarker:userLocationMarker AtLatLong:markerLocation];
+    }
+    else
+    {
+        [UIView beginAnimations:nil context:UIGraphicsGetCurrentContext()];
+        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+        [UIView setAnimationDuration:0.5];
+        
+        [self.mapView.contents.markerManager moveMarker:userLocationMarker AtLatLon:markerLocation];
+        [UIView commitAnimations];
+    }
+
 }
 
 

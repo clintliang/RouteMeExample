@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F6427AF1466239E003B773A /* The-Sea-Turtle.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6427AE1466239E003B773A /* The-Sea-Turtle.png */; };
 		9F8BD2541465F436009AD924 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BD2531465F436009AD924 /* UIKit.framework */; };
 		9F8BD2561465F436009AD924 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BD2551465F436009AD924 /* Foundation.framework */; };
 		9F8BD2581465F436009AD924 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BD2571465F436009AD924 /* CoreGraphics.framework */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F6427AE1466239E003B773A /* The-Sea-Turtle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "The-Sea-Turtle.png"; sourceTree = "<group>"; };
 		9F8BD24F1465F436009AD924 /* RouteMeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteMeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8BD2531465F436009AD924 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9F8BD2551465F436009AD924 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				9F8BD4E81465FE03009AD924 /* pin.png */,
+				9F6427AE1466239E003B773A /* The-Sea-Turtle.png */,
 				9F8BD2621465F436009AD924 /* AppDelegate.h */,
 				9F8BD2631465F436009AD924 /* AppDelegate.m */,
 				9F8BD25A1465F436009AD924 /* Supporting Files */,
@@ -242,6 +245,7 @@
 				9F8BD25E1465F436009AD924 /* InfoPlist.strings in Resources */,
 				9F8BD4DD1465F98C009AD924 /* RouteMeExample_iphone.storyboard in Resources */,
 				9F8BD4E91465FE03009AD924 /* pin.png in Resources */,
+				9F6427AF1466239E003B773A /* The-Sea-Turtle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
