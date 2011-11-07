@@ -18,6 +18,8 @@
 #import "RMMarker.h"
 #import "RMLayerCollection.h"
 #import "RMMarkerManager.h"
+#import "RMProjection.h"
+#import "RMMercatorToScreenProjection.h"
 
 
 #define CONST_MAP_KEY_bing @""

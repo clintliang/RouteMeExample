@@ -256,21 +256,28 @@ fromLocation:(CLLocation *)oldLocation
     
     NSLog(@"(%f, %f)", lat, lng);
     UIImage *markerIcon = [UIImage imageNamed:@"The-Sea-Turtle.png"];
-    CLLocationCoordinate2D markerLocation = CLLocationCoordinate2DMake(lat, lng);
+    CLLocationCoordinate2D markerNewLocation = CLLocationCoordinate2DMake(lat, lng);
+    CLLocationCoordinate2D markerOldLocation = CLLocationCoordinate2DMake(oldLocation.coordinate.latitude, oldLocation.coordinate.longitude);
     
     if(!userLocationMarker)
     {
         userLocationMarker = [[RMMarker alloc] initWithUIImage:markerIcon anchorPoint:CGPointMake(0.5, 1.0)];
-        [self.mapView.contents.markerManager addMarker:userLocationMarker AtLatLong:markerLocation];
+        [self.mapView.contents.markerManager addMarker:userLocationMarker AtLatLong:markerNewLocation];
     }
     else
     {
-        [UIView beginAnimations:nil context:UIGraphicsGetCurrentContext()];
-        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-        [UIView setAnimationDuration:0.5];
+        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"position"];
         
-        [self.mapView.contents.markerManager moveMarker:userLocationMarker AtLatLon:markerLocation];
-        [UIView commitAnimations];
+        anim.fromValue = [NSValue valueWithCGPoint:[[mapView.contents mercatorToScreenProjection] projectXYPoint:[[mapView.contents projection] latLongToPoint:markerOldLocation]]];
+        
+        anim.toValue = [NSValue valueWithCGPoint:[[mapView.contents mercatorToScreenProjection] projectXYPoint:[[mapView.contents projection] latLongToPoint:markerNewLocation]]];
+        
+        anim.duration = 2.0f;
+        
+        [userLocationMarker addAnimation:anim forKey:@"positionAnimation"];
+        
+        //[self.mapView.contents.markerManager moveMarker:userLocationMarker AtLatLon:markerNewLocation];
+        //[UIView commitAnimations];
     }
 
 }
