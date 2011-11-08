@@ -12,6 +12,8 @@
 
 @synthesize mapSettingButton;
 @synthesize mapPicker;
+@synthesize locationButton;
+@synthesize compassButton;
 @synthesize mapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -109,13 +111,23 @@
     
     [self.mapView.contents.overlay addSublayer:polygonPath];
     
-    //updating location
+    /*
+     * add circle
+     */
+    RMCircle *circle = [[RMCircle alloc] initWithContents:self.mapView.contents radiusInMeters:1000.0f latLong: CLLocationCoordinate2DMake(53.91081, -122.76192)];
+    circle.lineColor = [[UIColor blueColor] colorWithAlphaComponent:0.8];
+    circle.lineWidthInPixels = 1;
+    circle.fillColor = [[UIColor blueColor] colorWithAlphaComponent:0.1];
+    
+    [self.mapView.contents.overlay addSublayer:circle];
+    
+    /*
+     * initial location manager
+     */
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-    [locationManager startUpdatingLocation];
-    
     
 }
 
@@ -124,6 +136,9 @@
 {
     [self setMapSettingButton:nil];
     [self setMapPicker:nil];
+    [self setLocationButton:nil];
+    [self setCompassButton:nil];
+
     [super viewDidUnload];
     mapView = nil;
 }
@@ -134,6 +149,63 @@
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
     return YES;
 }
+
+- (void)enlargeMapViewFrame
+{
+    originalMapViewFrame = self.mapView.frame;
+    CGRect newFrame = self.mapView.frame;
+    CGRect bounds = self.mapView.superview.bounds;
+    
+    // pythagoras ftw.
+    CGFloat superviewDiagonal = ceilf(sqrtf(bounds.size.width * bounds.size.width + bounds.size.height * bounds.size.height));
+    
+    // set new size of frame
+    newFrame.size.width = superviewDiagonal + 5.f;
+    newFrame.size.height = superviewDiagonal + 5.f;
+    self.mapView.frame = newFrame;
+    
+    // center in superview
+    self.mapView.center = self.mapView.superview.center;
+    self.mapView.frame = CGRectIntegral(self.mapView.frame);
+}
+
+- (void)restoreMapViewFrame
+{
+    self.mapView.frame = originalMapViewFrame;
+}
+
+- (IBAction)toggleCompass:(id)sender 
+{
+    if(!isCompassOn)
+        isCompassOn = NO;
+    
+    if (isCompassOn) 
+    {
+        [locationManager stopUpdatingHeading];
+        [self.mapView setRotation:0];
+        [self restoreMapViewFrame];
+        
+        //restore pin annotations to the original heading
+        [self.mapView.contents.markerManager setRotation:(0)];
+        
+        self.compassButton.style = UIBarButtonItemStyleBordered;
+        isCompassOn = NO;
+    }
+    else
+    {
+        CLLocation *myLocation = [locationManager location];
+        CLLocationCoordinate2D center = myLocation.coordinate;
+        [self.mapView.contents moveToLatLong:center];
+        
+        [self enlargeMapViewFrame];
+
+        [locationManager startUpdatingHeading];
+        self.compassButton.style = UIBarButtonItemStyleDone;
+        isCompassOn = YES;
+    }
+
+}
+
 
 - (void) setMapSourceWithNumber:(int)number
 {
@@ -205,6 +277,32 @@
     //[self.mapView setUserInteractionEnabled:self.mapPicker.isHidden]; //this code dosn't work on xcode 4.2
 }
 
+- (IBAction)toggleTraceUserLocation:(id)sender 
+{
+    if(!isTracingUserLocation)
+        isTracingUserLocation = NO;
+    
+    if (isTracingUserLocation) 
+    {
+        [locationManager stopUpdatingLocation];
+        [self.mapView.markerManager removeMarker:userLocationMarker];
+        userLocationMarker = nil;
+        self.locationButton.style = UIBarButtonItemStyleBordered;
+        isTracingUserLocation = NO;
+    }
+    else
+    {
+        CLLocation *myLocation = [locationManager location];
+        CLLocationCoordinate2D center = myLocation.coordinate;
+        [self.mapView.contents moveToLatLong:center];
+        
+        [locationManager startUpdatingLocation];
+        self.locationButton.style = UIBarButtonItemStyleDone;
+        isTracingUserLocation = YES;
+    }
+
+}
+
 /*
  * UIPickerViewDelegate methods
  */
@@ -272,14 +370,28 @@ fromLocation:(CLLocation *)oldLocation
         
         anim.toValue = [NSValue valueWithCGPoint:[[mapView.contents mercatorToScreenProjection] projectXYPoint:[[mapView.contents projection] latLongToPoint:markerNewLocation]]];
         
-        anim.duration = 2.0f;
+        anim.duration = 0.1f;
         
         [userLocationMarker addAnimation:anim forKey:@"positionAnimation"];
         
-        //[self.mapView.contents.markerManager moveMarker:userLocationMarker AtLatLon:markerNewLocation];
-        //[UIView commitAnimations];
+        [self.mapView.contents.markerManager moveMarker:userLocationMarker AtLatLon:markerNewLocation];
     }
 
+}
+     
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
+{
+    //test map view rotation
+    [self.mapView setRotation:(-1 * newHeading.magneticHeading * M_PI / 180)];
+    for (RMMarker *marker in [self.mapView.contents.markerManager markers]) 
+    {
+        if ([marker isKindOfClass:[RMMarker class]]) 
+        {
+            [marker setAffineTransform:CGAffineTransformMakeRotation(-1 * newHeading.magneticHeading * M_PI / 180)];
+        }
+        
+    }
+    //[self.mapView.contents setRotation:(-1 * newHeading.magneticHeading * M_PI / 180)];
 }
 
 

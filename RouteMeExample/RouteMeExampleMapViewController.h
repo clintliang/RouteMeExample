@@ -16,6 +16,7 @@
 #import "RMOpenStreetMapSource.h"
 #import "RMPath.h"
 #import "RMMarker.h"
+#import "RMCircle.h"
 #import "RMLayerCollection.h"
 #import "RMMarkerManager.h"
 #import "RMProjection.h"
@@ -31,13 +32,23 @@
     int mapSourceNumber;
     CLLocationManager *locationManager;
     RMMarker *userLocationMarker;
+    
+    CGRect originalMapViewFrame;
+    BOOL isTracingUserLocation;
+    BOOL isCompassOn;
 }
 
 @property (strong, nonatomic) IBOutlet RMMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *mapSettingButton;
 @property (strong, nonatomic) IBOutlet UIPickerView *mapPicker;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *locationButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *compassButton;
 
 - (void) setMapSourceWithNumber: (int) number;
 - (IBAction)showMapSettings:(id)sender;
+- (IBAction)toggleTraceUserLocation:(id)sender;
+- (void)enlargeMapViewFrame;
+- (IBAction)toggleCompass:(id)sender;
+- (void)restoreMapViewFrame;
 
 @end

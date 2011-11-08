@@ -14,36 +14,46 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="3p8-ya-CL8" customClass="RMMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="jPA-Gh-aIC">
-                                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <items>
-                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="xGe-LX-EKd"/>
-                                            <barButtonItem title="MapSource" id="kFf-Me-YEu">
-                                                <connections>
-                                                    <action selector="showMapSettings:" destination="PFD-z8-3kY" id="Hnv-aL-aU6"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </items>
-                                    </toolbar>
-                                    <pickerView contentMode="scaleToFill" id="cKp-ub-rYw">
-                                        <rect key="frame" x="0.0" y="200" width="320" height="216"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="PFD-z8-3kY" id="SKX-78-yCJ"/>
-                                            <outlet property="delegate" destination="PFD-z8-3kY" id="s7z-F5-zai"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="jPA-Gh-aIC">
+                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="location.png" id="0Ow-ji-KVk">
+                                        <connections>
+                                            <action selector="toggleTraceUserLocation:" destination="PFD-z8-3kY" id="ex7-Mz-QpY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="compass.png" id="v6l-8U-Wkz">
+                                        <connections>
+                                            <action selector="toggleCompass:" destination="PFD-z8-3kY" id="7VV-CF-eeZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xGe-LX-EKd"/>
+                                    <barButtonItem image="gear.png" id="kFf-Me-YEu">
+                                        <connections>
+                                            <action selector="showMapSettings:" destination="PFD-z8-3kY" id="Hnv-aL-aU6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <pickerView contentMode="scaleToFill" id="cKp-ub-rYw">
+                                <rect key="frame" x="0.0" y="200" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PFD-z8-3kY" id="SKX-78-yCJ"/>
+                                    <outlet property="delegate" destination="PFD-z8-3kY" id="s7z-F5-zai"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="compassButton" destination="v6l-8U-Wkz" id="JDx-Zl-N9b"/>
+                        <outlet property="locationButton" destination="0Ow-ji-KVk" id="sst-5y-K5A"/>
                         <outlet property="mapPicker" destination="cKp-ub-rYw" id="hw6-Ox-V7j"/>
                         <outlet property="mapSettingButton" destination="kFf-Me-YEu" id="JBD-Jr-nw4"/>
                         <outlet property="mapView" destination="3p8-ya-CL8" id="Th5-M5-NS7"/>
@@ -53,6 +63,11 @@
             <point key="canvasLocation" x="170" y="52"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="compass.png" width="24" height="24"/>
+        <image name="gear.png" width="26" height="26"/>
+        <image name="location.png" width="20" height="20"/>
+    </resources>
     <classes>
         <class className="RMMapView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMMapView.h"/>
@@ -61,6 +76,10 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RouteMeExampleMapViewController.h"/>
             <relationships>
                 <relationship kind="action" name="showMapSettings:"/>
+                <relationship kind="action" name="toggleCompass:"/>
+                <relationship kind="action" name="toggleTraceUserLocation:"/>
+                <relationship kind="outlet" name="compassButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="locationButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="mapPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="mapSettingButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="mapView" candidateClass="RMMapView"/>
