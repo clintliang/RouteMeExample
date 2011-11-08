@@ -387,7 +387,7 @@ fromLocation:(CLLocation *)oldLocation
     {
         if ([marker isKindOfClass:[RMMarker class]]) 
         {
-            [marker setAffineTransform:CGAffineTransformMakeRotation(-1 * newHeading.magneticHeading * M_PI / 180)];
+            [marker setAffineTransform:CGAffineTransformMakeRotation(newHeading.magneticHeading * M_PI / 180)];
         }
         
     }
